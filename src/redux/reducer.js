@@ -1,19 +1,8 @@
-const initialState = {
-  boards: {},
-};
+import { combineReducers } from 'redux';
+import { boardReducer } from './reducers/boardReducer';
+import { columnReducer } from './reducers/columnReducer';
 
-export const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'CREATE_BOARD':
-      return {
-        ...state,
-        boards: {
-          ...state.boards,
-          [action.payload.id]: { columns: {}, name: action.payload.name },
-        },
-      };
-      break;
-    default:
-      return state;
-  }
-};
+export const rootReducer = combineReducers({
+  board: boardReducer,
+  column: columnReducer,
+});

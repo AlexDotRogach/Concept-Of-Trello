@@ -1,29 +1,58 @@
 import css from './Board.module.css';
-import { useSelector } from 'react-redux';
+import { GoTrashcan } from 'react-icons/go';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectBoards } from '../../redux/selectors';
-import BoardForm from '../../forms/BoardForm';
+import { deleteBoard } from '../../redux/actions/boardAction';
 import { Link } from 'react-router-dom';
-const Board = () => {
-  const boards = useSelector(selectBoards);
-  const boardsInfo = [];
+import { NotificationManager } from 'react-notifications';
+import BoardForm from '../../forms/BoardForm';
 
-  for (const key in boards) {
-    boardsInfo.push([key, boards[key].name]);
+const Board = () => {
+  const dispatch = useDispatch();
+  const boards = useSelector(selectBoards);
+  const settingForCreateButton = {
+    show: true,
+    text: 'create board',
+  };
+
+  if (boards.length >= 3) {
+    settingForCreateButton.show = !settingForCreateButton.show;
+    settingForCreateButton.text = 'enough boards';
   }
 
+  const handleDeleteBoard = ({ currentTarget: { parentElement } }) => {
+    const {
+      dataset: { id },
+    } = parentElement;
+
+    if (!id) {
+      NotificationManager.error('Troubles with delete');
+      return;
+    }
+
+    const isDelete = window.confirm('Do you want to delete this board?');
+
+    isDelete && dispatch(deleteBoard(id));
+  };
+
   return (
-    <>
-      <BoardForm></BoardForm>
+    <section className={css.boardHome}>
+      <BoardForm settingButton={settingForCreateButton}></BoardForm>
       <ul className={css.listBoards}>
-        {boardsInfo.map(([id, name], index) => {
+        {boards.map(({ id, name }) => {
           return (
-            <li key={index} className={css.board}>
+            <li key={id} className={css.itemBoard} data-id={id}>
               <Link to={id}>{name}</Link>
+              <GoTrashcan
+                fill="blue"
+                size={14}
+                onClick={handleDeleteBoard}
+              ></GoTrashcan>
             </li>
           );
         })}
       </ul>
-    </>
+    </section>
   );
 };
 

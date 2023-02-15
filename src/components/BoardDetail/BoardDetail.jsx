@@ -3,6 +3,7 @@ import { BsPlusCircleFill } from 'react-icons/bs';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectBoards } from '../../redux/selectors';
+import { NotificationManager } from 'react-notifications';
 const App = () => {
   const { boardId } = useParams();
   const boards = useSelector(selectBoards);
@@ -19,7 +20,10 @@ const App = () => {
       },
     } = e;
 
-    console.log(nameOfColumn);
+    if (!nameOfColumn) {
+      NotificationManager.info('Write the name of column');
+      return;
+    }
   };
 
   return (
@@ -38,17 +42,17 @@ const App = () => {
           </button>
         </form>
       </li>
-      <li className={css.boardColumn}>
-        <form>
-          <input
-            className={css.input}
-            type="text"
-            name="name"
-            id="name"
-            placeholder="name of column"
-          />
-        </form>
-      </li>
+      {/*<li className={css.boardColumn}>*/}
+      {/*  <form>*/}
+      {/*    <input*/}
+      {/*      className={css.input}*/}
+      {/*      type="text"*/}
+      {/*      name="name"*/}
+      {/*      id="name"*/}
+      {/*      placeholder="name of column"*/}
+      {/*    />*/}
+      {/*  </form>*/}
+      {/*</li>*/}
     </ul>
   );
 };

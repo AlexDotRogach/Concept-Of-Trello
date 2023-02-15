@@ -26,4 +26,6 @@ ul,li {
 a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
+  transition: all ease-in 1s;
 }

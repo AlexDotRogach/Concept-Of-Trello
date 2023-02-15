@@ -1,16 +1,26 @@
+.boardHome {
+  margin: 20px 0 0 1.2rem;
+}
+
 .listBoards {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-left: 1.3rem;
+  margin: 20px 0 0 3px;
 }
 
-.board {
-  font-size: 20px;
+.itemBoard {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.5s ease-out;
+  max-width: max-content;
 }
 
-.board:hover {
-  opacity: .6;
+.itemBoard:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
 }
+
