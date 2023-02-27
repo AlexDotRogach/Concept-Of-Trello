@@ -1,0 +1,33 @@
+.addTask {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  height: 30px;
+  min-width: 200px;
+  padding: .5rem;
+  border-radius: 10px;
+  background: rgba(0,0,0,.05);
+  transition: background 1s;
+}
+
+.addTask:hover {
+  background: rgba(0,0,0,.1);
+}
+
+.addTaskButton {
+  display: flex;
+}
+
+/*anim*/
+.addTaskEnter {
+  opacity: 0;
+}
+
+.addTaskEnterActive {
+  transition: all 600ms;
+  opacity: 1;
+}
+
+.addTaskExit {
+  opacity: 0;
+}

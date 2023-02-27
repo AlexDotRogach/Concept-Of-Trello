@@ -1,0 +1,19 @@
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0 0 5px;
+}
+
+.taskListItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: white;
+}
+
+.trash {
+  cursor: pointer;
+}

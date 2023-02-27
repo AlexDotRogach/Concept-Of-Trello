@@ -1,5 +1,9 @@
 @import '~@csstools/normalize.css';
 
+:root {
+  --mainColor: cornflowerblue;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -28,4 +32,11 @@ a {
   color: black;
   cursor: pointer;
   transition: all ease-in 1s;
+}
+
+button {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
 }

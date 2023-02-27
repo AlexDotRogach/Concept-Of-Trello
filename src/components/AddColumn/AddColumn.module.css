@@ -1,0 +1,13 @@
+.controlColumn {
+  width: 250px;
+  opacity: 0.6;
+}
+
+.addFormColumnEnter {
+  transform: translateY(-150%);
+}
+
+.addFormColumnEnterDone {
+  transition: transform 600ms;
+  transform: translateY(0);
+}

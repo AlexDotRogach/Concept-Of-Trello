@@ -7,11 +7,14 @@ const initialState = {
 export const boardReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'CREATE_BOARD':
-      const isBoard = state.boards.find(
+      const isBoard = state.boards.some(
         board => board.name === action.payload.name
       );
 
-      if (isBoard) return state;
+      if (isBoard) {
+        NotificationManager.info('The same name of board');
+        return state;
+      }
 
       return {
         ...state,

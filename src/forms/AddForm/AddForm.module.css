@@ -1,0 +1,63 @@
+.addForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: rgba(0,0,0,.03);
+  border-radius: 10px;
+}
+
+.addInput {
+  display: block;
+  padding: 10px;
+  min-width: calc(100% - 20px);
+  font-family: inherit;
+  font-weight: 400;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+  border-radius: 0.45rem;
+  outline: none;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.addInput:focus {
+  border-bottom: 1px solid var(--mainColor);
+}
+
+.controlBtn {
+  display: flex;
+  gap:15px;
+  width: 100%;
+}
+
+.add {
+  background: var(--mainColor);
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  transition: all 0.3s ease-out;
+}
+
+.add:hover {
+  opacity: .7;
+  transform: scale(.95);
+}
+
+.close {
+  display: flex;
+  align-items: center;
+}
+
+/*anim*/
+.addFormEnter {
+  transform: translateY(-150%);
+}
+
+.addFormEnterDone {
+  transition: transform 600ms;
+  transform: translateY(0);
+}

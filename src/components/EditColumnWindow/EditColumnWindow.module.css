@@ -1,0 +1,32 @@
+.editWindow {
+  position: absolute;
+  top: 35px;
+  right: -120px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  z-index: 999;
+
+  padding: 10px;
+  border-radius: 5px;
+  background: var(--mainColor);
+  opacity: .95;
+}
+
+.editWindowItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 5px;
+  padding: 5px;
+  background: white;
+  cursor: pointer;
+  transition: opacity .3s;
+}
+
+.editWindowItem:hover {
+  opacity: .80;
+}
